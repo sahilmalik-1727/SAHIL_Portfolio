@@ -286,38 +286,52 @@ h1, h2, h3, h4 {
 @media (max-width: 768px) {
   #burger { display: flex; }
 
+  /* Nav must break OUT of the header stacking context on mobile */
   .nav-links {
     position: fixed;
-    inset: 0;
-    background: rgba(3, 5, 8, 0.97);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(3, 5, 8, 0.98);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    /* Hidden off-screen to the right */
+    gap: 8px;
     transform: translateX(100%);
     transition: transform 0.38s var(--ease);
     border-radius: 0;
-    padding: 0;
-    z-index: 999;
+    padding: 40px 24px;
+    /* Must be above header (z-index 1000) */
+    z-index: 9000;
+    overflow-y: auto;
   }
   .nav-links.menu-open {
     transform: translateX(0);
   }
+  /* Burger must sit above the open menu */
+  #burger {
+    z-index: 9001;
+  }
   .nav-link {
-    font-size: 28px;
+    font-size: 26px;
     font-family: var(--fd);
     font-weight: 700;
-    padding: 14px 40px;
+    padding: 12px 36px;
     color: var(--text);
+    border-radius: 12px;
+    width: 100%;
+    text-align: center;
   }
-  .nav-link:hover { color: var(--cyan); background: transparent; }
+  .nav-link:hover,
+  .nav-link.active { color: var(--cyan); background: var(--cyan-dim); }
   .nav-resume-btn {
-    margin-top: 16px;
+    margin-top: 20px;
     padding: 14px 40px;
-    font-size: 18px;
+    font-size: 17px;
+    width: auto;
   }
 }
 
@@ -646,25 +660,58 @@ h1, h2, h3, h4 {
 @media (max-width: 900px) {
   .hero-inner {
     grid-template-columns: 1fr;
-    gap: 44px;
+    gap: 60px;
     text-align: center;
   }
   .hero-text { align-items: center; }
   .hero-desc { max-width: 100%; }
   .hero-photo-side { order: -1; }
-  .photo-wrap { width: 220px; height: 220px; }
+
+  /* Give photo-wrap enough room for all 4 tags around it */
+  .photo-wrap {
+    width: 300px;
+    height: 300px;
+    margin: 30px auto;
+  }
   .hero-photo { width: 160px; height: 160px; }
   .ring-outer { width: 200px; height: 200px; }
-  .ring-mid   { width: 225px; height: 225px; }
-  .tag-top, .tag-right, .tag-bottom { font-size: 9px; padding: 5px 10px; }
-  .tag-right { right: -30px; }
+  .ring-mid   { width: 230px; height: 230px; }
+
+  /* Reposition all 4 tags so they sit just outside the rings */
+  .tag-top {
+    font-size: 9px; padding: 5px 11px;
+    top: 14px; left: 50%; transform: translateX(-50%);
+  }
+  .tag-bottom {
+    font-size: 9px; padding: 5px 11px;
+    bottom: 14px; left: 50%; transform: translateX(-50%);
+  }
+  .tag-left {
+    font-size: 9px; padding: 5px 11px;
+    left: -10px; top: 50%; transform: translateY(-50%);
+    display: block;
+  }
+  .tag-right {
+    font-size: 9px; padding: 5px 11px;
+    right: -10px; top: 50%; transform: translateY(-50%);
+    display: block;
+  }
 }
+
 @media (max-width: 480px) {
   .hero-cta { flex-direction: column; }
   .btn-primary, .btn-ghost { justify-content: center; text-align: center; }
-  .tag-right { display: none; }
-}
 
+  /* On very small screens shrink tags font a bit more but keep all 4 visible */
+  .photo-wrap { width: 260px; height: 260px; }
+  .tag-top, .tag-bottom, .tag-left, .tag-right {
+    font-size: 8px;
+    padding: 4px 9px;
+    letter-spacing: 0.06em;
+  }
+  .tag-left  { left: -1px; }
+  .tag-right { right: -39px; }
+}
 
 /* ════════════════════════════════════════════
    ABOUT
@@ -1021,7 +1068,18 @@ h1, h2, h3, h4 {
 .sarrow:hover { background: var(--cyan); color: #000; border-color: var(--cyan); }
 .sarrow-prev { left: -18px; }
 .sarrow-next { right: -18px; }
-@media (max-width: 600px) { .sarrow { display: none; } }
+@media (max-width: 600px) {
+  .sarrow {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    /* Pull them inward so they sit on top of the strip edges */
+    top: calc(50% - 24px);
+  }
+  .sarrow-prev { left: 2px; }
+  .sarrow-next { right: 2px; }
+}
 
 /* ── Documents row ── */
 .docs-grid {
@@ -1216,6 +1274,11 @@ h1, h2, h3, h4 {
 @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; gap: 48px; } }
 
 .contact-info { position: sticky; top: 90px; }
+
+/* Remove sticky on mobile — it causes overlap over footer */
+@media (max-width: 860px) {
+  .contact-info { position: static; top: auto; }
+}
 .contact-desc { font-size: 15.5px; color: var(--muted); line-height: 1.85; margin-bottom: 32px; }
 
 .contact-card-id {
