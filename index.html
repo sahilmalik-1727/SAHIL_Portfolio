@@ -7,60 +7,54 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Particle canvas — sits behind everything -->
-  <canvas id="particleCanvas"></canvas>
+  <!-- Premium animated pattern background -->
+  <div class="bg-grid"></div>
+  <div class="bg-dots"></div>
+  <div class="bg-gradient"></div>
+  <div class="bg-blob blob1"></div>
+  <div class="bg-blob blob2"></div>
+  <div class="bg-blob blob3"></div>
 
   <!-- Custom cursor -->
   <div class="cursor-dot"></div>
   <div class="cursor-ring"></div>
 
-  <!-- ══════════════════════════════
-       NAV
-  ══════════════════════════════ -->
+  <!-- ══════════════════════════════ NAV ══════════════════════════════ -->
   <header class="top-nav" id="topNav">
     <a href="#hero" class="nav-logo" aria-label="Home">
-      <img src="./image/logo.png" alt="Sahil Logo" />
+      <img src="./image/logo.png" alt="Sahil Logo" onerror="this.outerHTML='<span class=\'logo-text\'>S.</span>'"/>
     </a>
 
     <nav class="nav-links" id="navLinks">
       <a href="#about"    class="nav-link">About</a>
-      <a href="#services" class="nav-link">Services</a>
+      <a href="#showreel" class="nav-link">Reel</a>
       <a href="#projects" class="nav-link">Work</a>
       <a href="#skills"   class="nav-link">Skills</a>
       <a href="#contact"  class="nav-link">Contact</a>
       <a href="./image/SAHIL RESUME.pdf" class="nav-resume-btn" target="_blank" rel="noopener">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-          <circle cx="12" cy="12" r="3"/>
-        </svg>
-        View Resume
+        <i class="bi bi-file-earmark-text"></i>
+        Resume
       </a>
     </nav>
 
-    <button id="burger" aria-label="Toggle Menu" aria-expanded="false">
+    <button id="burger" type="button" aria-label="Toggle Menu" aria-expanded="false">
       <span class="burger-line"></span>
       <span class="burger-line"></span>
       <span class="burger-line"></span>
     </button>
   </header>
 
-  <!-- ══════════════════════════════
-       HERO
-  ══════════════════════════════ -->
+  <!-- ══════════════════════════════ HERO ══════════════════════════════ -->
   <section id="hero" class="hero-section">
-    <!-- Background decoration -->
-    <div class="hero-grid"></div>
     <div class="hero-orb orb1"></div>
     <div class="hero-orb orb2"></div>
-    <div class="hero-orb orb3"></div>
 
     <div class="hero-inner">
-
-      <!-- LEFT: text -->
       <div class="hero-text">
         <div class="hero-badge">
           <span class="badge-dot"></span>
@@ -72,70 +66,77 @@
           <span class="accent">Sahil</span>
         </h1>
 
-        <!-- <h2 class="hero-roles">
-          Web Developer
-          <span class="roles-sep">/</span>
-          Designer
-          <span class="roles-sep">/</span>
-          Video Editor
-          <span class="roles-sep">/</span>
-          Photographer
-        </h2> -->
-
         <p class="hero-desc">
           I turn bold ideas into digital experiences that look stunning,
           feel effortless, and actually work. Let's build something great together.
         </p>
 
         <div class="hero-cta">
-          <a href="#contact"  class="btn-primary">Hire Me</a>
-          <a href="#projects" class="btn-ghost">See My Work</a>
+          <a href="#contact"  class="btn-primary">
+            Hire Me
+            <i class="bi bi-arrow-right btn-arrow"></i>
+          </a>
+          <a href="#projects" class="btn-ghost">
+            See My Work
+            <i class="bi bi-arrow-down-right btn-arrow"></i>
+          </a>
         </div>
 
         <a href="./image/SAHIL RESUME.pdf" target="_blank" rel="noopener" class="hero-resume-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-            <circle cx="12" cy="12" r="3"/>
-          </svg>
+          <i class="bi bi-eye"></i>
           View My Resume
         </a>
       </div>
 
-      <!-- RIGHT: circular photo with rings -->
       <div class="hero-photo-side">
         <div class="photo-wrap">
-          <!-- Animated rings -->
           <div class="photo-ring ring-outer"></div>
           <div class="photo-ring ring-mid"></div>
-          <!-- Photo -->
-          <img src="./image/sahil.jpeg" alt="Sahil Malik" class="hero-photo" />
-          <!-- Floating tags -->
+          <img src="./image/sahil.jpeg" alt="Sahil Malik" class="hero-photo" onerror="this.style.background='linear-gradient(135deg,#38d9f5,#1a1a2e)'"/>
           <div class="photo-tag tag-top">Web Developer</div>
           <div class="photo-tag tag-left">Photographer</div>
           <div class="photo-tag tag-right">Video Editor</div>
           <div class="photo-tag tag-bottom">Designer</div>
         </div>
       </div>
-
     </div>
 
-    <!-- Scroll hint -->
     <div class="scroll-hint">
       <span>scroll down</span>
       <div class="scroll-bar"><div class="scroll-fill"></div></div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════
-       ABOUT
-  ══════════════════════════════ -->
+  <!-- ══════════════════════════════ SHOWREEL ══════════════════════════════ -->
+  <section id="showreel" class="showreel-section reveal">
+    <div class="section-inner">
+      <div class="showreel-header">
+        <div class="eyebrow">2026 Demo Reel</div>
+        <h2 class="section-title">My <span class="accent">Showreel</span></h2>
+        <p class="showreel-sub">A quick look at what I've been creating design, motion &amp; storytelling.</p>
+      </div>
+
+      <div class="showreel-frame">
+        <div class="showreel-video">
+          <iframe
+            src="https://www.youtube.com/embed/ZdP7jWkDmus?rel=0&modestbranding=1"
+            title="Sahil — 2026 Demo Reel"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════ ABOUT ══════════════════════════════ -->
   <section id="about" class="about-section reveal">
     <div class="section-inner about-grid">
-
       <div class="about-text">
         <div class="eyebrow">Who I Am</div>
         <h2 class="section-title">Why Hire <span class="accent">Me?</span></h2>
-        <p>I'm creative, energetic, and empathetic turning ideas into impact through design, problem solving, and storytelling. Whether collaborating or working solo, I deliver meaningful, human centered work with passion and purpose.</p>
+        <p>I'm creative, energetic, and empathetic turning ideas into impact through design, problem solving, and storytelling. Whether collaborating or working solo, I deliver meaningful, human-centered work with passion and purpose.</p>
         <div class="trait-pills">
           <span>Problem Solver</span>
           <span>Detail-Oriented</span>
@@ -147,11 +148,11 @@
 
       <div class="about-stats">
         <div class="stat-box highlight-box">
-          <span class="stat-n">7<sup>+</sup></span>
+          <span class="stat-n">8<sup>+</sup></span>
           <span class="stat-l">Software Tools</span>
         </div>
         <div class="stat-box">
-          <span class="stat-n">10<sup>+</sup></span>
+          <span class="stat-n">15<sup>+</sup></span>
           <span class="stat-l">Projects Completed</span>
         </div>
         <div class="stat-box cyan-box">
@@ -159,94 +160,14 @@
           <span class="stat-l">Dedication</span>
         </div>
         <div class="stat-box">
-          <span class="stat-n">3<sup>+</sup></span>
+          <span class="stat-n">2<sup>+</sup></span>
           <span class="stat-l">Years Experience</span>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ══════════════════════════════
-       SERVICES
-  ══════════════════════════════ -->
-  <section id="services" class="services-section reveal">
-    <div class="section-inner">
-      <div class="section-header">
-        <div>
-          <div class="eyebrow">What I Do</div>
-          <h2 class="section-title">My <span class="accent">Services</span></h2>
-        </div>
-        <p class="section-sub">Full-spectrum creative &amp; technical<br>services tailored to your vision.</p>
-      </div>
-
-      <div class="bento-grid">
-
-        <div class="bento-card wide-card">
-          <span class="bento-num">01</span>
-          <div class="bento-icon-wrap">
-            <img src="./icons/webdev.svg" alt="Web Development" />
-          </div>
-          <h3>Website Development</h3>
-          <p>Custom, responsive websites built with clean code and modern design principles that deliver real results.</p>
-          <div class="bento-accent-line"></div>
-        </div>
-
-        <div class="bento-card">
-          <span class="bento-num">02</span>
-          <div class="bento-icon-wrap"><img src="./icons/seo.svg" alt="SEO" /></div>
-          <h3>SEO Optimization</h3>
-          <p>Boost visibility and traffic with proven, data-driven SEO strategies.</p>
-          <div class="bento-accent-line"></div>
-        </div>
-
-        <div class="bento-card">
-          <span class="bento-num">03</span>
-          <div class="bento-icon-wrap"><img src="./icons/redesign.svg" alt="Redesign" /></div>
-          <h3>Website Redesign</h3>
-          <p>Modernize your site's look, feel, and user experience for today's web.</p>
-          <div class="bento-accent-line"></div>
-        </div>
-
-        <div class="bento-card">
-          <span class="bento-num">04</span>
-          <div class="bento-icon-wrap"><img src="./icons/photo.svg" alt="Photography" /></div>
-          <h3>Photography</h3>
-          <p>Professional images that capture your brand story with clarity and impact.</p>
-          <div class="bento-accent-line"></div>
-        </div>
-
-        <div class="bento-card">
-          <span class="bento-num">05</span>
-          <div class="bento-icon-wrap"><img src="./icons/video.svg" alt="Video Editing" /></div>
-          <h3>Video Editing</h3>
-          <p>Engaging edits for social media, YouTube, short films, reels and more.</p>
-          <div class="bento-accent-line"></div>
-        </div>
-
-        <div class="bento-card">
-          <span class="bento-num">06</span>
-          <div class="bento-icon-wrap"><img src="./icons/cms.svg" alt="CMS" /></div>
-          <h3>Content Management</h3>
-          <p>Easy-to-manage CMS setups so you control your content with ease.</p>
-          <div class="bento-accent-line"></div>
-        </div>
-
-        <div class="bento-card wide-card">
-          <span class="bento-num">07</span>
-          <div class="bento-icon-wrap"><img src="./icons/ecommerce.svg" alt="eCommerce" /></div>
-          <h3>eCommerce Development</h3>
-          <p>Robust, conversion-focused online stores built to grow your business at scale.</p>
-          <div class="bento-accent-line"></div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════
-       PROJECTS / WORK
-  ══════════════════════════════ -->
+  <!-- ══════════════════════════════ PROJECTS ══════════════════════════════ -->
   <section id="projects" class="projects-section reveal">
     <div class="section-inner">
 
@@ -255,179 +176,282 @@
           <div class="eyebrow">Creative Work</div>
           <h2 class="section-title">Selected <span class="accent">Projects</span></h2>
         </div>
-        <div class="filter-tabs">
-          <button class="ftab active" data-filter="all">All</button>
-          <button class="ftab" data-filter="image">Art &amp; Photo</button>
-          <button class="ftab" data-filter="video">Film</button>
-          <button class="ftab" data-filter="pdf">Documents</button>
+        <div class="filter-tabs" id="filterTabs">
+          <button type="button" class="ftab active" data-filter="all">All</button>
+          <button type="button" class="ftab" data-filter="video">Video &amp; Motion</button>
+          <button type="button" class="ftab" data-filter="ui">UI / UX</button>
+          <button type="button" class="ftab" data-filter="graphic">Graphic Design</button>
+          <button type="button" class="ftab" data-filter="photo">Photography</button>
+          <button type="button" class="ftab" data-filter="logo">Logofolio</button>
         </div>
       </div>
 
-      <!-- Featured projects -->
-      <div class="featured-grid">
+      <!-- ─── VIDEO & MOTION ─── -->
+      <div class="cat-block" data-cat="video">
+        <div class="cat-head">
+          <i class="bi bi-camera-reels"></i>
+          <h3>Video Editing &amp; Motion Design</h3>
+        </div>
+        <div class="card-grid">
 
-        <article class="proj-card proj-big" data-type="image">
-          <div class="proj-img">
-            <img src="gallery/heineken.jpg" alt="Heineken Poster" />
-          </div>
-          <div class="proj-meta">
-            <span class="proj-tag">Graphic Design</span>
-            <h3>Heineken Advertise Poster</h3>
-            <p>A bold promotional poster blending strong typography with product photography.</p>
-          </div>
-        </article>
+          <article class="proj-card video-card" data-type="video"
+            data-videoid="0yt-e44I1Bw"
+            data-title="Keep Going — Kinetic Typography"
+            data-desc="A motivational kinetic typography motion design piece exploring perseverance through type, rhythm, and color.">
+            <div class="proj-img">
+              <img src="https://i.ytimg.com/vi/0yt-e44I1Bw/hqdefault.jpg" alt="Keep Going" loading="lazy"/>
+              <div class="play-overlay"><div class="play-btn"><i class="bi bi-play-fill"></i></div></div>
+            </div>
+            <div class="proj-meta">
+              <span class="proj-tag video-tag">Motion Design</span>
+              <h3>Keep Going</h3>
+              <p>Kinetic typography motivational piece.</p>
+            </div>
+            <div class="media-badge yt-badge"><i class="bi bi-youtube"></i> YouTube</div>
+          </article>
 
-        <article class="proj-card proj-big video-card" data-type="video"
-          data-videoid="xHI5IEzkCVE"
-          data-title="Time — Short Film"
-          data-desc="A short film project exploring the concept of time through powerful visual storytelling.">
-          <div class="proj-img">
-            <img src="https://img.youtube.com/vi/xHI5IEzkCVE/maxresdefault.jpg" alt="Time Short Film" />
-            <div class="play-overlay">
-              <div class="play-btn">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><polygon points="5,3 19,12 5,21"/></svg>
+          <article class="proj-card video-card" data-type="video"
+            data-videoid="xHI5IEzkCVE"
+            data-title="Time — Short Film"
+            data-desc="A cinematic short film exploring time and memory through compelling visual narrative.">
+            <div class="proj-img">
+              <img src="https://i.ytimg.com/vi/xHI5IEzkCVE/hqdefault.jpg" alt="Time Short Film" loading="lazy"/>
+              <div class="play-overlay"><div class="play-btn"><i class="bi bi-play-fill"></i></div></div>
+            </div>
+            <div class="proj-meta">
+              <span class="proj-tag video-tag">Short Film</span>
+              <h3>Time</h3>
+              <p>A short film exploring time &amp; memory.</p>
+            </div>
+            <div class="media-badge yt-badge"><i class="bi bi-youtube"></i> YouTube</div>
+          </article>
+
+          <article class="proj-card video-card" data-type="video"
+            data-videoid="-ADndC4_R50"
+            data-title="Toronto — A Short Intro"
+            data-desc="A scenic short film introducing some of Toronto's most iconic places to visit.">
+            <div class="proj-img">
+              <img src="https://i.ytimg.com/vi/-ADndC4_R50/hqdefault.jpg" alt="Toronto Intro" loading="lazy"/>
+              <div class="play-overlay"><div class="play-btn"><i class="bi bi-play-fill"></i></div></div>
+            </div>
+            <div class="proj-meta">
+              <span class="proj-tag video-tag">Travel Film</span>
+              <h3>Intro of Toronto</h3>
+              <p>A glimpse of Toronto's iconic spots.</p>
+            </div>
+            <div class="media-badge yt-badge"><i class="bi bi-youtube"></i> YouTube</div>
+          </article>
+
+          <article class="proj-card video-card" data-type="video"
+            data-videoid="vMdKV20280s"
+            data-title="Solsip — Brand Ad"
+            data-desc="A refreshing brand ad we created for Solsip, a vibrant new refreshment drink.">
+            <div class="proj-img">
+              <img src="https://i.ytimg.com/vi/vMdKV20280s/hqdefault.jpg" alt="Solsip Ad" loading="lazy"/>
+              <div class="play-overlay"><div class="play-btn"><i class="bi bi-play-fill"></i></div></div>
+            </div>
+            <div class="proj-meta">
+              <span class="proj-tag video-tag">Brand Ad</span>
+              <h3>Solsip · Refreshment Drink</h3>
+              <p>Commercial ad for a refreshing beverage brand.</p>
+            </div>
+            <div class="media-badge yt-badge"><i class="bi bi-youtube"></i> YouTube</div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ─── UI / UX ─── -->
+      <div class="cat-block" data-cat="ui">
+        <div class="cat-head">
+          <i class="bi bi-phone"></i>
+          <h3>UI / UX Design</h3>
+        </div>
+        <div class="card-grid ui-grid">
+
+          <article class="proj-card ui-card" data-type="ui">
+            <div class="proj-img ui-thumb">
+              <img src="gallery/MAGAZINE.jpg" alt="Naturcycle Skincare App"
+                onerror="this.src='https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=80'" loading="lazy"/>
+              <div class="ui-thumb-overlay">
+                <div class="ui-thumb-inner">
+                  <i class="bi bi-palette-fill"></i>
+                  <span>Naturcycle App</span>
+                  <small>Figma Prototype</small>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="proj-meta">
-            <span class="proj-tag video-tag">Short Film</span>
-            <h3>Time — Short Film</h3>
-            <p>A cinematic short exploring time and memory through compelling visual narrative.</p>
-          </div>
-          <div class="media-badge yt-badge">▶ YouTube</div>
-        </article>
-
-        <article class="proj-card proj-big" data-type="image">
-          <div class="proj-img">
-            <img src="gallery/MAGAZINE.jpg" alt="Magazine Layout" />
-          </div>
-          <div class="proj-meta">
-            <span class="proj-tag">Editorial</span>
-            <h3>Magazine Layout</h3>
-            <p>A full editorial magazine layout showcasing clean typographic hierarchy and visual flow.</p>
-          </div>
-        </article>
-
-      </div>
-
-      <!-- Scroll strip of smaller cards -->
-      <div class="strip-wrap">
-        <div class="proj-strip" id="projStrip">
-
-          <article class="strip-card video-card" data-type="video"
-            data-videoid="BMhZs4LW1cQ"
-            data-title="Personal Video"
-            data-desc="A personal creative video from my journey as a designer and creator.">
-            <div class="strip-img">
-              <img src="https://img.youtube.com/vi/BMhZs4LW1cQ/maxresdefault.jpg" alt="Personal Video" />
-              <div class="strip-play">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><polygon points="5,3 19,12 5,21"/></svg>
-              </div>
+            <div class="proj-meta">
+              <span class="proj-tag ui-tag">App Prototype · Figma</span>
+              <h3>Naturcycle · Skincare App</h3>
+              <p>Interactive prototype of a skincare product app focused on natural ingredients and clean UX.</p>
+              <a href="https://www.figma.com/proto/FzJ0Y0YW6ZBfLAjS8AAeF2/final-frames?node-id=36-579&t=aZE5w1G1HkYG3W3I-1" target="_blank" rel="noopener" class="link-out">
+                Open in Figma <i class="bi bi-arrow-up-right"></i>
+              </a>
             </div>
-            <div class="strip-meta">
-              <span class="proj-tag video-tag">Personal</span>
-              <h4>project Video</h4>
+            <div class="media-badge figma-badge"><i class="bi bi-palette"></i> Figma</div>
+          </article>
+
+          <article class="proj-card ui-card" data-type="ui">
+            <div class="ui-prototype behance-frame">
+              <iframe
+                src="https://www.behance.net/embed/project/247480001?ilo0=1"
+                allowfullscreen
+                allow="clipboard-write"
+                referrerpolicy="strict-origin-when-cross-origin"
+                title="Naturcycle Case Study"
+                loading="lazy"></iframe>
             </div>
-            <div class="media-badge yt-badge sm-badge">▶</div>
-          </article>
-
-          <article class="strip-card" data-type="image">
-            <div class="strip-img"><img src="gallery/car.png" alt="Car Series" /></div>
-            <div class="strip-meta"><span class="proj-tag">Photography</span><h4>Car Series</h4></div>
-          </article>
-
-          <article class="strip-card" data-type="image">
-            <div class="strip-img"><img src="gallery/deathbed.jpg" alt="Deathbed Poster" /></div>
-            <div class="strip-meta"><span class="proj-tag">Poster</span><h4>Deathbed Poster</h4></div>
-          </article>
-
-          <article class="strip-card" data-type="image">
-            <div class="strip-img"><img src="gallery/wordillustration.jpg" alt="Alphabet Art" /></div>
-            <div class="strip-meta"><span class="proj-tag">Illustration</span><h4>Alphabet Art</h4></div>
-          </article>
-
-          <article class="strip-card" data-type="image">
-            <div class="strip-img"><img src="gallery/werewolf icon.jpg" alt="Werewolf Icon" /></div>
-            <div class="strip-meta"><span class="proj-tag">Icon Design</span><h4>Werewolf Icon</h4></div>
-          </article>
-
-          <article class="strip-card" data-type="image">
-            <div class="strip-img"><img src="gallery/sketch.jpg" alt="Low Poly" /></div>
-            <div class="strip-meta"><span class="proj-tag">Illustration</span><h4>Low Poly Art</h4></div>
-          </article>
-
-          <article class="strip-card" data-type="image">
-            <div class="strip-img"><img src="gallery/Bever.png" alt="Bever" /></div>
-            <div class="strip-meta"><span class="proj-tag">Branding</span><h4>Bever Promo Post</h4></div>
-          </article>
-
-          <article class="strip-card" data-type="image">
-            <div class="strip-img"><img src="gallery/classic (1).jpg" alt="Classic Car" /></div>
-            <div class="strip-meta"><span class="proj-tag">Photography</span><h4>Classic Car</h4></div>
-          </article>
-
-          <article class="strip-card" data-type="image">
-            <div class="strip-img"><img src="gallery/classic (9).jpg" alt="Car Series 2" /></div>
-            <div class="strip-meta"><span class="proj-tag">Photography</span><h4>Car Series Vol.2</h4></div>
+            <div class="proj-meta">
+              <span class="proj-tag ui-tag">Case Study · Behance</span>
+              <h3>Naturcycle Case Study</h3>
+              <p>Full UX case study showing research, wireframes and final UI for the Naturcycle app.</p>
+              <a href="https://www.behance.net/sahilmalik42" target="_blank" rel="noopener" class="link-out">
+                View on Behance <i class="bi bi-arrow-up-right"></i>
+              </a>
+            </div>
+            <div class="media-badge behance-badge"><i class="bi bi-bezier2"></i> Behance</div>
           </article>
 
         </div>
-
-        <!-- Strip navigation arrows -->
-        <button class="sarrow sarrow-prev" id="stripPrev" aria-label="Previous">&#8249;</button>
-        <button class="sarrow sarrow-next" id="stripNext" aria-label="Next">&#8250;</button>
       </div>
 
-      <!-- Documents row -->
-      <div class="docs-grid">
-
-        <article class="doc-card" data-type="pdf">
-          <div class="doc-file-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-              <line x1="16" y1="13" x2="8" y2="13"/>
-              <line x1="16" y1="17" x2="8" y2="17"/>
-            </svg>
-          </div>
-          <div class="doc-body">
-            <span class="proj-tag">Branding</span>
-            <h4>Project 1</h4>
-            <p>Design &amp; branding project</p>
-          </div>
-          <div class="doc-btns">
-            <a href="./gallery/project1.pdf" target="_blank" rel="noopener" class="dbtn dbtn-view">View</a>
-            <a href="./gallery/project1.pdf" download class="dbtn dbtn-dl">↓</a>
-          </div>
-          <div class="media-badge pdf-badge">PDF</div>
-        </article>
-
-        <article class="doc-card" data-type="pdf">
-          <div class="doc-file-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-              <circle cx="12" cy="14" r="3"/>
-            </svg>
-          </div>
-          <div class="doc-body">
-            <span class="proj-tag">Identity</span>
-            <h4>Logo Collection</h4>
-            <p>Brand identity &amp; logo design</p>
-          </div>
-          <div class="doc-btns">
-            <a href="./gallery/logos.pdf" target="_blank" rel="noopener" class="dbtn dbtn-view">View</a>
-            <a href="./gallery/logos.pdf" download class="dbtn dbtn-dl">↓</a>
-          </div>
-          <div class="media-badge pdf-badge">PDF</div>
-        </article>
-
-        <div class="doc-quote">
-          <span class="dq-mark">"</span>
-          <p>Creativity takes courage.</p>
-          <cite>— Henri Matisse</cite>
+      <!-- ─── GRAPHIC DESIGN ─── -->
+      <div class="cat-block" data-cat="graphic">
+        <div class="cat-head">
+          <i class="bi bi-palette2"></i>
+          <h3>Graphic Design</h3>
         </div>
+        <div class="card-grid">
 
+          <article class="proj-card" data-type="graphic">
+            <div class="proj-img"><img src="gallery/heineken.jpg" alt="Heineken Poster" loading="lazy"/></div>
+            <div class="proj-meta">
+              <span class="proj-tag">Poster</span>
+              <h3>Heineken Ad Poster</h3>
+              <p>Bold promotional poster blending typography &amp; product photography.</p>
+            </div>
+          </article>
+
+          <article class="proj-card" data-type="graphic">
+            <div class="proj-img"><img src="gallery/MAGAZINE.jpg" alt="Magazine Layout" loading="lazy"/></div>
+            <div class="proj-meta">
+              <span class="proj-tag">Editorial</span>
+              <h3>Magazine Layout</h3>
+              <p>Editorial layout with clean typographic hierarchy and flow.</p>
+            </div>
+          </article>
+
+          <article class="proj-card" data-type="graphic">
+            <div class="proj-img"><img src="gallery/deathbed.jpg" alt="Deathbed Poster" loading="lazy"/></div>
+            <div class="proj-meta">
+              <span class="proj-tag">Poster</span>
+              <h3>Deathbed Poster</h3>
+              <p>Conceptual poster design with dramatic mood &amp; type.</p>
+            </div>
+          </article>
+
+          <article class="proj-card" data-type="graphic">
+            <div class="proj-img"><img src="gallery/wordillustration.jpg" alt="Alphabet Art" loading="lazy"/></div>
+            <div class="proj-meta">
+              <span class="proj-tag">Illustration</span>
+              <h3>Alphabet Art</h3>
+              <p>Creative type illustration exploring shape and form.</p>
+            </div>
+          </article>
+
+          <article class="proj-card" data-type="graphic">
+            <div class="proj-img"><img src="gallery/Bever.png" alt="Bever Promo" loading="lazy"/></div>
+            <div class="proj-meta">
+              <span class="proj-tag">Branding</span>
+              <h3>Bever Promo Post</h3>
+              <p>Social media promo design for an outdoor brand.</p>
+            </div>
+          </article>
+
+          <article class="proj-card" data-type="graphic">
+            <div class="proj-img"><img src="gallery/sketch.jpg" alt="Low Poly" loading="lazy"/></div>
+            <div class="proj-meta">
+              <span class="proj-tag">Illustration</span>
+              <h3>Low Poly Art</h3>
+              <p>Geometric low-poly illustration with rich color blocking.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ─── PHOTOGRAPHY ─── -->
+      <div class="cat-block" data-cat="photo">
+        <div class="cat-head">
+          <i class="bi bi-camera"></i>
+          <h3>Photography</h3>
+        </div>
+        <div class="card-grid">
+
+          <article class="proj-card" data-type="photo">
+            <div class="proj-img"><img src="gallery/car.png" alt="Car Series" loading="lazy"/></div>
+            <div class="proj-meta">
+              <h3>Car Series</h3>
+              <p>Automotive photography session with cinematic light.</p>
+            </div>
+          </article>
+
+          <article class="proj-card" data-type="photo">
+            <div class="proj-img"><img src="gallery/classic (1).jpg" alt="Classic Car" loading="lazy"/></div>
+            <div class="proj-meta">
+              <h3>Classic Car</h3>
+              <p>Classic car portrait vintage tones &amp; texture.</p>
+            </div>
+          </article>
+
+          <article class="proj-card" data-type="photo">
+            <div class="proj-img"><img src="gallery/classic (9).jpg" alt="Car Vol 2" loading="lazy"/></div>
+            <div class="proj-meta">
+              <h3>Car Series Vol. 2</h3>
+              <p>Continuation of the automotive series, with fresh angles.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ─── LOGOFOLIO ─── -->
+      <div class="cat-block" data-cat="logo">
+        <div class="cat-head">
+          <i class="bi bi-vector-pen"></i>
+          <h3>Logofolio</h3>
+        </div>
+        <div class="card-grid">
+
+          <article class="proj-card" data-type="logo">
+            <div class="proj-img"><img src="gallery/werewolf icon.jpg" alt="Werewolf Icon" loading="lazy"/></div>
+            <div class="proj-meta">
+              <span class="proj-tag logo-tag">Logo Mark</span>
+              <h3>Werewolf Icon</h3>
+              <p>Bold mascot mark with strong silhouette and identity.</p>
+            </div>
+          </article>
+
+          <article class="proj-card" data-type="logo">
+            <div class="proj-img"><img src="gallery/Bever.png" alt="Logo Sample" loading="lazy"/></div>
+            <div class="proj-meta">
+              <span class="proj-tag logo-tag">Brand Mark</span>
+              <h3>Bever Mark</h3>
+              <p>Clean wordmark exploration for a lifestyle brand.</p>
+            </div>
+          </article>
+
+          <article class="proj-card" data-type="logo">
+            <div class="proj-img"><img src="gallery/wordillustration.jpg" alt="Type Logo" loading="lazy"/></div>
+            <div class="proj-meta">
+              <span class="proj-tag logo-tag">Type Logo</span>
+              <h3>Type Based Mark</h3>
+              <p>Custom typographic logo with character and rhythm.</p>
+            </div>
+          </article>
+
+        </div>
       </div>
 
     </div>
@@ -436,134 +460,106 @@
   <!-- VIDEO MODAL -->
   <div id="videoModal" class="video-modal" role="dialog" aria-modal="true" aria-label="Video Player">
     <div class="vmodal-inner">
-      <button class="vmodal-close" id="modalClose" aria-label="Close video">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18">
-          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-        </svg>
+      <button class="vmodal-close" id="modalClose" type="button" aria-label="Close video">
+        <i class="bi bi-x-lg"></i>
       </button>
       <h3 class="vmodal-title" id="modalTitle"></h3>
       <div class="vmodal-video">
         <iframe id="videoIframe" src="" title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen></iframe>
       </div>
       <p class="vmodal-desc" id="modalDesc"></p>
     </div>
   </div>
 
-  <!-- ══════════════════════════════
-       SKILLS
-  ══════════════════════════════ -->
+  <!-- ══════════════════════════════ SKILLS ══════════════════════════════ -->
   <section id="skills" class="skills-section reveal">
     <div class="section-inner">
       <div class="eyebrow">Toolkit</div>
       <h2 class="section-title">Software <span class="accent">Skills</span></h2>
       <div class="skills-wrap">
-        <div class="skill-pill"><img src="./icons/ps.svg"  alt="Photoshop"   /><span>Photoshop</span></div>
-        <div class="skill-pill"><img src="./icons/ai.svg"  alt="Illustrator" /><span>Illustrator</span></div>
-        <div class="skill-pill"><img src="./icons/id.svg"  alt="InDesign"    /><span>InDesign</span></div>
-        <div class="skill-pill"><img src="./icons/pr.svg"  alt="Premiere Pro"/><span>Premiere Pro</span></div>
-        <div class="skill-pill"><img src="./icons/db.svg"  alt="MySQL"       /><span>MySQL</span></div>
-        <div class="skill-pill"><img src="./icons/js.svg"  alt="JavaScript"  /><span>JavaScript</span></div>
-        <div class="skill-pill"><img src="./icons/css.svg" alt="CSS"         /><span>CSS</span></div>
+        <div class="skill-pill"><i class="bi bi-image-fill"></i><span>Photoshop</span></div>
+        <div class="skill-pill"><i class="bi bi-pen-fill"></i><span>Illustrator</span></div>
+        <div class="skill-pill"><i class="bi bi-file-richtext-fill"></i><span>InDesign</span></div>
+        <div class="skill-pill"><i class="bi bi-camera-reels-fill"></i><span>Premiere Pro</span></div>
+        <div class="skill-pill"><i class="bi bi-film"></i><span>After Effects</span></div>
+        <div class="skill-pill"><i class="bi bi-bezier2"></i><span>Figma</span></div>
+        <div class="skill-pill"><i class="bi bi-filetype-js"></i><span>JavaScript</span></div>
+        <div class="skill-pill"><i class="bi bi-filetype-css"></i><span>CSS</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════
-       CONTACT
-  ══════════════════════════════ -->
+  <!-- ══════════════════════════════ CONTACT ══════════════════════════════ -->
   <section id="contact" class="contact-section reveal">
-    <div class="section-inner contact-grid">
+    <div class="section-inner">
 
-      <div class="contact-info">
+      <div class="contact-header">
         <div class="eyebrow">Get In Touch</div>
         <h2 class="section-title">Let's <span class="accent">Work Together</span></h2>
-        <p class="contact-desc">Have a project in mind? I'd love to hear about it. Send me a message and let's create something amazing.</p>
-
-        <div class="contact-card-id">
-          <img src="./image/slogo.png" alt="Sahil Logo" class="cid-logo" />
-          <div class="cid-text">
-            <strong>Sahil</strong>
-            <span>Web Developer · Designer · Video Editor · Photographer</span>
-          </div>
-        </div>
-
-        <div class="social-icons">
-          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon">
-            <img src="./icons/instagram.png" alt="Instagram" />
-          </a>
-          <a href="https://facebook.com"  target="_blank" rel="noopener" aria-label="Facebook"  class="social-icon">
-            <img src="./icons/facebook.png"  alt="Facebook" />
-          </a>
-          <a href="https://twitter.com"   target="_blank" rel="noopener" aria-label="Twitter"   class="social-icon">
-            <img src="./icons/twitter.png"   alt="Twitter" />
-          </a>
-          <a href="https://youtube.com"   target="_blank" rel="noopener" aria-label="YouTube"   class="social-icon">
-            <img src="./icons/youtube.png"   alt="YouTube" />
-          </a>
-          <a href="https://linkedin.com"  target="_blank" rel="noopener" aria-label="LinkedIn"  class="social-icon">
-            <img src="./icons/linkedin.png"  alt="LinkedIn" />
-          </a>
-        </div>
+        <p class="contact-desc">Have a project in mind? Reach out through any of the channels below I'd love to hear from you.</p>
       </div>
 
-      <div class="contact-form-wrap">
-        <form id="contactForm" novalidate>
-          <div class="form-row">
-            <div class="fg">
-              <input type="text" id="firstName" name="firstName" placeholder=" " required />
-              <label for="firstName">First Name <span class="req">*</span></label>
-            </div>
-            <div class="fg">
-              <input type="text" id="lastName" name="lastName" placeholder=" " required />
-              <label for="lastName">Last Name <span class="req">*</span></label>
-            </div>
-          </div>
-          <div class="fg">
-            <input type="email" id="email" name="email" placeholder=" " required />
-            <label for="email">Email Address <span class="req">*</span></label>
-          </div>
-          <div class="fg">
-            <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
-            <label for="message">Your Message <span class="req">*</span></label>
-          </div>
-          <button type="submit" id="submitBtn" class="submit-btn">
-            <span class="btn-label">Send Message</span>
-            <span class="btn-arr">→</span>
-          </button>
-        </form>
+      <div class="contact-cards">
+
+        <a href="mailto:sahilmalik1727@gmail.com" class="contact-card">
+          <div class="cc-icon"><i class="bi bi-envelope-fill"></i></div>
+          <span class="cc-label">Email</span>
+          <strong class="cc-value">sahilmalik1727@gmail.com</strong>
+          <span class="cc-action">Send a mail <i class="bi bi-arrow-up-right"></i></span>
+        </a>
+
+        <a href="tel:+17426881727" class="contact-card">
+          <div class="cc-icon"><i class="bi bi-telephone-fill"></i></div>
+          <span class="cc-label">Phone</span>
+          <strong class="cc-value">+1 742 688 1727</strong>
+          <span class="cc-action">Call me <i class="bi bi-arrow-up-right"></i></span>
+        </a>
+
+        <a href="https://wa.me/17426881727" target="_blank" rel="noopener" class="contact-card whatsapp-card">
+          <div class="cc-icon wa-icon"><i class="bi bi-whatsapp"></i></div>
+          <span class="cc-label">WhatsApp</span>
+          <strong class="cc-value">Chat on WhatsApp</strong>
+          <span class="cc-action">Message me <i class="bi bi-arrow-up-right"></i></span>
+        </a>
+
+      </div>
+
+      <div class="social-block">
+        <p class="social-title">Or find me on</p>
+        <div class="social-icons">
+          <a href="https://instagram.com/sahil_malik1727" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="https://www.youtube.com/@sahil_1.7.2.7" target="_blank" rel="noopener" aria-label="YouTube" class="social-icon">
+            <i class="bi bi-youtube"></i>
+          </a>
+          <a href="https://www.behance.net/sahilmalik42" target="_blank" rel="noopener" aria-label="Behance" class="social-icon">
+            <i class="bi bi-behance"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/sahil-26a2b3238/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon">
+            <i class="bi bi-linkedin"></i>
+          </a>
+        </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ══════════════════════════════
-       FOOTER
-  ══════════════════════════════ -->
+  <!-- ══════════════════════════════ FOOTER ══════════════════════════════ -->
   <footer class="site-footer">
     <div class="footer-inner">
       <a href="#hero" class="footer-brand">
-        <img src="./image/logo.png" alt="Sahil Logo" />
-        <!-- <span>Sahil</span> -->
+        <img src="./image/logo.png" alt="Sahil Logo" onerror="this.outerHTML='<span class=\'logo-text\'>S.</span>'"/>
       </a>
       <p class="footer-copy">© 2026 — Crafted with passion &amp; code</p>
       <a href="./image/SAHIL RESUME.pdf" target="_blank" rel="noopener" class="footer-resume">
-        View Resume ↗
+        View Resume <i class="bi bi-arrow-up-right"></i>
       </a>
     </div>
   </footer>
 
-  <!-- SUCCESS POPUP -->
-  <div id="popupBg" class="popup-bg">
-    <div class="popup-box" id="popupBox">
-      <div class="popup-tick">✓</div>
-      <p id="popupMsg">Thank you for your message!</p>
-      <button id="popupClose" class="popup-close-btn">Close</button>
-    </div>
-  </div>
-
-  <audio id="successAudio" src="./audio/success.mp3" preload="auto"></audio>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
